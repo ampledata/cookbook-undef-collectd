@@ -1,0 +1,16 @@
+# Via Chef:
+
+<LoadPlugin python>
+  Globals true
+</LoadPlugin>
+
+<Plugin python>
+  ModulePath "<%= node['collectd-plugins']['python']['module_path'] %>"
+  Import "eagle"
+
+  <Module eagle>
+    Host "<%= node['collectd-plugins']['eagle']['Host'] %>"
+    Port <%= node['collectd-plugins']['eagle']['Port']  %>
+    Verbose <%= node['collectd-plugins']['eagle']['Verbose'] %>
+  </Module>
+</Plugin>
